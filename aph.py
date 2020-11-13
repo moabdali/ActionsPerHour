@@ -30,9 +30,16 @@ print(timeStart)
 
 timeOwed = 0
 timePaid = 0
+outtime = 0
 
 while True:
-    currentTimeInput = (input("What time is it?"))
+    currentTimeInput = input("What time is it?  If adding break or lunch or outtime please type 'o' to do outtime.")
+    
+
+    if currentTimeInput in("o","O"):
+      outtime = int(input("How much outtime are you doing?  Type the number of minutes to the closest full minute."))
+      continue
+
     lengthOfTime = len(currentTimeInput)
     currentTimeLength = len(currentTimeInput)
 
@@ -68,8 +75,6 @@ while True:
 
     
     
-    timeOwed = (currentTime - timeStart)*60
+    timeOwed = (currentTime - timeStart - outtime)*60
     print("You owe "+ str(timeOwed)+ "minutes in total.")
     print("You've paid back "+ str(timePaid))
-    
-    
